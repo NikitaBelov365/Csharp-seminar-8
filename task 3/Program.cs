@@ -43,7 +43,7 @@ void SecondArrayPrint(int[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        if(array[i]>0) System.Console.WriteLine($"{i} meets {array[i]} in this array");
+        if (array[i] > 0) System.Console.WriteLine($"{i} meets {array[i]} in this array");
     }
     System.Console.WriteLine();
 }
@@ -51,18 +51,15 @@ void SecondArrayPrint(int[] array)
 int[] Dictionary(int[,] array)
 {
     int[] newArray = new int[10];
-    int a = 0;
 
-    while (a < 10)
+    foreach (int item in array)
     {
-        foreach (int item in array)
-        {
-            if(item == a) newArray[a]++;
-        }
-        a++;
+        newArray[item]++;
     }
     return newArray;
 }
+
+
 
 int rows = InputSize("Input rows");
 int columns = InputSize("Input columns");
