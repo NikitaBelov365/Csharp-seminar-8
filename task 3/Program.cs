@@ -39,24 +39,29 @@ void ArrayPrint(int[,] array)
     System.Console.WriteLine();
 }
 
-void Dictionary(int[,] array)
+void SecondArrayPrint(int[] array)
 {
+    for (int i = 0; i < array.Length; i++)
+    {
+        if(array[i]>0) System.Console.WriteLine($"{i} meets {array[i]} in this array");
+    }
+    System.Console.WriteLine();
+}
+
+int[] Dictionary(int[,] array)
+{
+    int[] newArray = new int[10];
     int a = 0;
 
     while (a < 10)
     {
-        int counter = 0;
-
-        for (int i = 0; i < array.GetLength(0); i++)
+        foreach (int item in array)
         {
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                if (a == array[i, j]) counter++;
-            }
+            if(item == a) newArray[a]++;
         }
-        if(counter>0) System.Console.WriteLine($"{a} in this array {counter} times");
         a++;
     }
+    return newArray;
 }
 
 int rows = InputSize("Input rows");
@@ -64,4 +69,5 @@ int columns = InputSize("Input columns");
 int[,] array = ArrayCreation(rows, columns);
 ArrayFill(array);
 ArrayPrint(array);
-Dictionary(array);
+int[] newArray = Dictionary(array);
+SecondArrayPrint(newArray);
